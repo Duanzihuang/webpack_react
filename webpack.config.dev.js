@@ -1,4 +1,5 @@
-const HtmlWebpackPlugin = require("html-webpack-plugin");
+const HtmlWebpackPlugin = require("html-webpack-plugin")
+const path = require('path')
 
 module.exports = {
   mode: "development", //开发环境，打包出来的代码是不会压缩的
@@ -6,9 +7,7 @@ module.exports = {
   resolve: {
     // 别名
     alias: {
-      "?": "./src",
-      "#": "./src/components",
-      "@": "./src/assets"
+      "@": path.resolve(__dirname,"src/components")
     },
     // 拓展名
     extensions: [".jsx", ".js", ".json"]

@@ -73,9 +73,39 @@ less
 
 ### React语法
 
-> 样式
+> JSX
+```
+jsx ==> javascript xml
+
+jsx ==> babel-loader ===> React.createElement()
+
+注意点:
+	1、注释的格式是 {/* xxx */}，但是仅仅在jsx中起作用
+	2、在JSX中，我们的属性值，要么是字符串 id="app"，要么就是非字符串 style={}
+```
+
+> 样式【在JSX中】
 
 ```
 1、我们在元素中要想写类名，要用className，因为class是es6的关键字
+
+2、行业样式语法格式 <div style={{color:'red',fontSize:36}}></div>
+
+3、页内样式 <div style={样式对象}></div>
+```
+
+> 组件
+
+```
+有状态组件(类组件)
+	1、一定要写render函数，并且返回JSX
+	2、render函数中的return 后面必须要跟内容，即使不跟也要写一个null，或者后面跟 (
+
+无状态组件(函数式组件)
+	自己无法产生数据，数据只能靠父组件给它传递
+
+有无状态
+	1、每个组件的数据来源分两种，一种是自己能够拥有，另外一种是靠父组件给它传递
+	2、组件是否拥有自己的数据
 ```
 

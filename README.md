@@ -1,6 +1,8 @@
 # webpack_react
 使用webpack手工搭建react项目
 
+### 项目构建
+
 >必要步骤
 
 ```
@@ -48,5 +50,32 @@
 	
 6、运行
 	yarn run start / npm run start
+```
+
+> Loader【https://webpack.js.org/loaders】
+
+```
+css
+	style-loader css-loader
+	
+less
+	style-loader css-loader less less-loader
+	
+图片(gif、png、jpg)、字体文件(ttf、eot、woff...)
+	url-loader  最好也安装上 file-loader
+```
+
+> 注意
+
+```
+1、更改了webpack的配置文件，一定要记得重新运行
+```
+
+### React语法
+
+> 样式
+
+```
+1、我们在元素中要想写类名，要用className，因为class是es6的关键字
 ```
 

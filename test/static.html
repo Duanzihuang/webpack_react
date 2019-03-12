@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        class Animal{
+            // 静态属性,所有的实例公有的东西，我们一般不会单独
+            // 设置为实例属性，一般都是静态属性
+            static lifePlace = '地球'
+
+            constructor(name,age){
+                // name 和 age我们称之为实例属性
+                // 它的访问，必须通过实例对象
+                this.name = name
+                this.age = age
+            }
+        } 
+        
+        const c1 = new Animal('蓝猫',3)
+        console.log(c1)
+        console.log(Animal.lifePlace)
+        Animal.lifePlace = '半人马座星系'
+        console.log(Animal.lifePlace)
+
+    </script>
+</body>
+</html>

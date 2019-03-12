@@ -73,6 +73,13 @@ less
 
 ### React语法
 
+> 文档地址 https://react.docschina.org/
+
+```
+中文文档：https://react.docschina.org/
+官网：https://www.reactjs.org/
+```
+
 > JSX
 ```
 jsx ==> javascript xml
@@ -157,13 +164,36 @@ Props和State怎样结合起来用
 > 爷孙之间传值
 
 ```
-
+爷爷:
+	// 约定传到子级组件中属性名称叫啥、值的类型叫啥
+	static childContextTypes = {
+        myValue:PropTypes.string
+    }
+	
+	// 真正的传值 
+    getChildContext() {
+        return {myValue: this.state.value};
+    }
+    
+孙子:
+	// 定义好接收的属性名称及接收值的类型
+	static contextTypes = {
+        myValue:PropTypes.string
+    }
+    
+    // 使用
+    this.context.myValue
 ```
 
 > 兄弟组件传值
 
 ```
+1、搞一个公共的bus （EventEmitter的实例）
 
+2、发送值的那一方，使用 bus.emit('自定义事件名称',载荷)
+
+3、接收值的那一方，使用 bus.on(自定义事件名称,处理函数)
+	bus.on 一般写在componentDidMount 只要注册一次
 ```
 
 > React中事件处理 及 this 绑定

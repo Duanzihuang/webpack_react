@@ -5,6 +5,8 @@ import "./App.less"
 import NoStateComponent from '@/NoStateComponent'
 import StateComponent from '@/StateComponent'
 import Counter from '@/Counter'
+import Grandpa from '@/Grandpa'
+import Parent from '@/brother/Parent'
 
 const chenhuanStyle = {
     color:'green',
@@ -25,7 +27,9 @@ class App extends React.Component{
             {/* <NoStateComponent name="ch" sex="男" age={18} isMan={true}/>
             <hr/>
             <StateComponent name="罗庆" sex="男" age={23}/> */}
-            <Counter initCount={10} callback={this.getChildValue}/>
+            {/* <Counter initCount={10} callback={this.getChildValue}/> */}
+            {/* <Grandpa /> */}
+            <Parent/>
         </div>
     }
 

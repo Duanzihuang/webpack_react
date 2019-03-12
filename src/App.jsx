@@ -7,6 +7,7 @@ import StateComponent from '@/StateComponent'
 import Counter from '@/Counter'
 import Grandpa from '@/Grandpa'
 import Parent from '@/brother/Parent'
+import Controlled from '@/Controlled'
 
 const chenhuanStyle = {
     color:'green',
@@ -29,7 +30,8 @@ class App extends React.Component{
             <StateComponent name="罗庆" sex="男" age={23}/> */}
             {/* <Counter initCount={10} callback={this.getChildValue}/> */}
             {/* <Grandpa /> */}
-            <Parent/>
+            {/* <Parent/> */}
+            <Controlled/>
         </div>
     }
 

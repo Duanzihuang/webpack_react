@@ -52,7 +52,7 @@
 	yarn run start / npm run start
 ```
 
-> Loader【https://webpack.js.org/loaders】
+> Loader https://webpack.js.org/loaders
 
 ```
 css
@@ -107,5 +107,48 @@ jsx ==> babel-loader ===> React.createElement()
 有无状态
 	1、每个组件的数据来源分两种，一种是自己能够拥有，另外一种是靠父组件给它传递
 	2、组件是否拥有自己的数据
+```
+
+> 父子组件传值
+
+```
+父组件
+	通过属性名称=值传递
+
+子组件
+	无状态，通过函数的形参（props）接收
+	有状态组件，一种是构造器中通过形参props接收，另外一种是在render等钩子中通过this.props接收
+	
+应用场景：
+	无状态组件适合简单的展示内容
+	有状态组件适合有业务场景
+	
+注意事项：
+	1、父组件传递过来的值(props)只用使用，不能更改
+	2、自己内部拥有的数据(state)可以更改
+```
+
+> 爷孙之间传值
+
+```
+
+```
+
+> 兄弟组件传值
+
+```
+
+```
+
+> React中事件处理 及 this 绑定
+
+```
+
+```
+
+> React受控组件与非受控组件
+
+```
+
 ```
 

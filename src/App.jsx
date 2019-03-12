@@ -15,9 +15,9 @@ class App extends React.Component{
     // render 是react的声明周期函数之一，用来渲染组件的内容
     render(){
         return <div>
-            <NoStateComponent />
+            <NoStateComponent name="ch" sex="男" age={18} isMan={true}/>
             <hr/>
-            <StateComponent />
+            <StateComponent name="罗庆" sex="男" age={23}/>
         </div>
     }
 

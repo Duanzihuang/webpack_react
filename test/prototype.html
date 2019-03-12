@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //原型的好处
+        
+        //节约内存
+        //可以用来继承
+        //拓展es3、5中已有API的方法
+
+        function Animal(name){
+            this.name = name
+            // this.sayName = function(){
+            //     console.log(this.name)
+            // }
+        }
+
+        // Animal.prototype.sayName = function(){
+        //     console.log(this.name)
+        // }
+
+        // function Cat(color){
+        //     this.color = color
+        // }
+
+        // Cat.prototype = new Animal('tom')
+        // Cat.prototype.sayColor = function(){
+        //     console.log(this.color)
+        // }
+
+        // const c1 = new Cat('蓝色')
+        // c1.sayName()
+        // c1.sayColor()
+
+
+        // const a1 = new Animal('tom')
+        // const a2 = new Animal('jerry')
+        // console.log(a1.sayName === a2.sayName)
+        // a1.sayName()
+        // a2.sayName()
+
+        // const arr = [1,3,5,8,1,3]
+        // Array.prototype.distinct = function(){
+        //     console.log("------------")
+        //     console.log(this)
+
+        //     return xxx
+        // }
+
+        // arr.distinct()
+    </script>
+</body>
+</html>

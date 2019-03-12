@@ -109,7 +109,7 @@ jsx ==> babel-loader ===> React.createElement()
 	2、组件是否拥有自己的数据
 ```
 
-> 父子组件传值
+> 父组件传值给子组件
 
 ```
 父组件
@@ -127,7 +127,33 @@ jsx ==> babel-loader ===> React.createElement()
 	1、父组件传递过来的值(props)只用使用，不能更改
 	2、自己内部拥有的数据(state)可以更改
 ```
-
+> 子组件传值给父组件
+```
+方式1：
+	通过回调函数，父组件传一个函数给子组件，并且函数是引用类型，当在子组件中调用函数的时候，就可以把结果传回给父组件
+	
+方式2：
+```
+> Props & State【有状态组件下】
+```
+Props
+	是父组件传递给子组件的值，是只读的，不允许修改
+	
+State
+	是组件内部拥有的，可以更改，如果该模型要显示在视图上，更改的时候要调用setState
+	如果我们更改的模型值，不需要显示在视图上 this.state.xxx = yyy
+	
+Props和State怎样结合起来用
+	Props由于不能更改，所以我们一般在构造器中，把props值赋值给state中的属性，后续操作
+	操作state中的值即可（无论显示或是更改）
+	
+类型检查【设置为静态属性】
+	当父组件给子组件传值的时候，我们可以约定传递值的类型，这样做的话，更加严谨
+	https://react.docschina.org/docs/typechecking-with-proptypes.html
+	
+默认值【设置为静态属性】
+	defaultProps
+```
 > 爷孙之间传值
 
 ```
@@ -143,7 +169,24 @@ jsx ==> babel-loader ===> React.createElement()
 > React中事件处理 及 this 绑定
 
 ```
+1、JSX中绑定事件使用on事件名称，比如 <button onClick={函数...}></button>
 
+2、事件处理函数中this的绑定【无传参】
+	直接写在onClick中调用函数的时候
+		<button onClick={this.clickMe.bind(this)}>更改值</button>
+		
+	可以在constructor中绑定this
+		this.clickMe = this.clickMe.bind(this)
+		
+	箭头函数
+		clickMe = () => { console.log("22222",this) }
+		
+3、事件处理函数中this的绑定【传参】
+	直接写在onClick中调用函数的时候
+		<button onClick={()=>{this.clickMe2(实参)}}>更改值</button>
+		
+	箭头函数
+		<button onClick={()=>{this.clickMe2(实参)}}>更改值</button>
 ```
 
 > React受控组件与非受控组件

@@ -4,6 +4,7 @@ import "./App.less"
 // 导入组件
 import NoStateComponent from '@/NoStateComponent'
 import StateComponent from '@/StateComponent'
+import Counter from '@/Counter'
 
 const chenhuanStyle = {
     color:'green',
@@ -12,12 +13,19 @@ const chenhuanStyle = {
 
 // 类组件(有状态组件)
 class App extends React.Component{
+
+    getChildValue = data => {
+        console.log("-----我是父组件----")
+        console.log(data)
+    }
+
     // render 是react的声明周期函数之一，用来渲染组件的内容
     render(){
         return <div>
-            <NoStateComponent name="ch" sex="男" age={18} isMan={true}/>
+            {/* <NoStateComponent name="ch" sex="男" age={18} isMan={true}/>
             <hr/>
-            <StateComponent name="罗庆" sex="男" age={23}/>
+            <StateComponent name="罗庆" sex="男" age={23}/> */}
+            <Counter initCount={10} callback={this.getChildValue}/>
         </div>
     }
 

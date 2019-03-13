@@ -8,6 +8,7 @@ import Counter from '@/Counter'
 import Grandpa from '@/Grandpa'
 import Parent from '@/brother/Parent'
 import Controlled from '@/Controlled'
+import ConditionalAndFor from '@/ConditionalAndFor'
 
 const chenhuanStyle = {
     color:'green',
@@ -24,14 +25,23 @@ class App extends React.Component{
 
     // render 是react的声明周期函数之一，用来渲染组件的内容
     render(){
+        const obj = {
+            name:"ch",
+            sex:"男",
+            age:18,
+            isMan:true
+        }
+
         return <div>
-            {/* <NoStateComponent name="ch" sex="男" age={18} isMan={true}/>
+            {/* <NoStateComponent {...obj}/>  */}
+            {/* <NoStateComponent name="ch" sex="男" age={18} isMan={true}/> */}
             <hr/>
-            <StateComponent name="罗庆" sex="男" age={23}/> */}
+            {/*<StateComponent name="罗庆" sex="男" age={23}/> */}
             {/* <Counter initCount={10} callback={this.getChildValue}/> */}
             {/* <Grandpa /> */}
             {/* <Parent/> */}
-            <Controlled/>
+            {/* <Controlled/> */}
+            <ConditionalAndFor/>
         </div>
     }
 

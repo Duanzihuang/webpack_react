@@ -246,19 +246,50 @@ Props和State怎样结合起来用
 > 受控组件（checkbox、radio）
 
 ```
-
+代码见MyCheckboxAndRadio
 ```
 
 > 非受控组件（ref、文件上传）
 
 ```
+1、获取焦点(ref)
 
+2、文件上传(ref)
 ```
 
 > 生命周期钩子
 
 ```
+https://www.cnblogs.com/qiaojie/p/6135180.html
 
+初次渲染阶段
+	componentWillMount -> render -> componentDidMount
+	
+再次渲染
+	props componentWillReceiveProps
+	state shouldComponentUpdate -> componentWillUpdate -> render -> componentDidUpdate
+	
+卸载
+	componentWillUnmount
+
+注意：
+	千万不要在render函数中更改state的值，这样会造成死循环
 ```
 
 > 图书管理案例（在React中实现增删改查）
+
+```
+知识点
+	列表渲染 map
+	
+	受控组件 获取输入框的值
+	
+	事件 事件对象
+	
+	数组
+		map
+		forEach
+		filter
+		some
+```
+

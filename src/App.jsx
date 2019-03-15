@@ -18,6 +18,12 @@ import Book from '@/book/Book'
 import Basic from '@/router/Basic'
 import Nested from '@/router/Nested'
 
+// 购物车案例
+import Index from '@/cart/redux/views/Index'
+
+// 热更新
+import { hot } from 'react-hot-loader/root'
+
 const chenhuanStyle = {
     color:'green',
     fontSize:50
@@ -55,7 +61,8 @@ class App extends React.Component{
             {/* <LifeCycle/> */}
             {/* <Book></Book> */}
             {/* <Basic /> */}
-            <Nested></Nested>
+            {/* <Nested></Nested> */}
+            <Index />
         </div>
     }
 
@@ -82,4 +89,4 @@ class App extends React.Component{
     }
 }
 
-export default App
+export default hot(App)

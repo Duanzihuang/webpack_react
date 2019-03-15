@@ -15,7 +15,8 @@ import {Link} from 'react-router-dom'
 
 export default class Login extends React.Component{
     login = () => {
-        this.props.history.push('/layout/menu1')
+        this.props.history.push('/layout')
+        // this.props.history.push('/layout/menu1')
     }
 
     render(){

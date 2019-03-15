@@ -2,6 +2,10 @@ import React, { Component } from "react";
 
 import { Button } from 'element-react';
 
+import {addToCart} from '../store/actionCreators'
+
+import store from '../store'
+
 export default class GoodsList extends Component {
   constructor() {
     super();
@@ -43,6 +47,15 @@ export default class GoodsList extends Component {
       ]
     };
   }
+
+  // 添加购物车
+  addCart = goods => {
+    const action = addToCart(goods)
+    
+    // 出发action
+    store.dispatch(action)
+  }
+
   render() {
     return (
       <div>
@@ -57,6 +70,7 @@ export default class GoodsList extends Component {
                 <p>商品名:{item.name}</p>
                 <p>¥:{item.price}</p>
                 <Button
+                  onClick={()=>{this.addCart(item)}}
                   type="success"
                   style={{marginTop:15}}
                 >

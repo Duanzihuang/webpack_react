@@ -7,12 +7,22 @@
  *  修改商品
  *  删除商品
  */
-export default (preState,action) => {
+export default (preState = [],action) => {
+    console.log("----reducer------",action)
     switch (action.type) {
         case "ADD_CART":
-            return [{id:222,name:'测试'}]
+            //1.把preState，进行深拷贝一次
+            const newArray = JSON.parse(JSON.stringify(preState))
+            const goods = newArray.find(item=> item.id === action.goods.id)
+            if (goods){
+                goods.num += action.goods.num
+            } else {
+                newArray.push(action.goods)
+            }
     
+            return newArray
+
         default:
-            return [{id:222,name:'测试'}]
+            return preState
     }
 }

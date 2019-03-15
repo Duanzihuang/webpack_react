@@ -14,9 +14,39 @@ import Cart from './Cart.jsx'
 import NotFound from './NotFound'
 
 export default class Index extends Component {
-  componentWillMount(){
-    console.log(store.getState())
+  constructor(){
+    super()
+
+    this.state = {
+      totalCount:0
+    }
   }
+
+  componentWillMount(){
+    this.setState({
+      totalCount:this.calcTotalCount()
+    })
+
+    // 监听仓库数据的改变，只要仓库的数据变了，就执行回调函数
+    store.subscribe(()=>{
+      this.setState({
+        totalCount:this.calcTotalCount()
+      })
+    })
+  }
+
+  calcTotalCount = () => {
+    // 去仓库中取到最新的数据
+    const goodsList = store.getState()
+
+    let totalCount = 0
+    goodsList.forEach(item=>{
+      totalCount += item.num
+    })
+
+    return totalCount
+  }
+
   render() {
     return (
       <HashRouter>
@@ -27,7 +57,7 @@ export default class Index extends Component {
               <p>
                 <Link to="/">商品列表</Link>
                 <Link to="/cart">
-                  购物车<span />
+                  购物车{this.state.totalCount > 0 && <span>（{this.state.totalCount}）</span>}<span />
                 </Link>
               </p>
             </h2>

@@ -1,0 +1,23 @@
+.layout{
+    width: 600px;
+    margin:100px auto;
+}
+
+.left{
+    width:200px;
+    height: 500px;
+    float: left;
+    border: 1px solid red;
+}
+
+.right{
+    width:380px;
+    height: 500px;
+    float: right;
+    border: 1px solid green;
+}
+
+.top{
+    height: 100px;
+    border: 1px solid black;
+}

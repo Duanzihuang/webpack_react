@@ -14,6 +14,10 @@ import RefAndDom from '@/RefAndDom'
 import LifeCycle from '@/LifeCycle'
 import Book from '@/book/Book'
 
+// 路由相关的组件
+import Basic from '@/router/Basic'
+import Nested from '@/router/Nested'
+
 const chenhuanStyle = {
     color:'green',
     fontSize:50
@@ -39,7 +43,7 @@ class App extends React.Component{
         return <div>
             {/* <NoStateComponent {...obj}/>  */}
             {/* <NoStateComponent name="ch" sex="男" age={18} isMan={true}/> */}
-            <hr/>
+            {/* <hr/> */}
             {/*<StateComponent name="罗庆" sex="男" age={23}/> */}
             {/* <Counter initCount={10} callback={this.getChildValue}/> */}
             {/* <Grandpa /> */}
@@ -49,7 +53,9 @@ class App extends React.Component{
             {/* <MyCheckboxAndRadio /> */}
             {/* <RefAndDom/> */}
             {/* <LifeCycle/> */}
-            <Book></Book>
+            {/* <Book></Book> */}
+            {/* <Basic /> */}
+            <Nested></Nested>
         </div>
     }
 

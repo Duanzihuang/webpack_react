@@ -33,6 +33,15 @@ export default class Index extends Component {
         totalCount:this.calcTotalCount()
       })
     })
+
+    // 监听window的onbeforeunload
+    window.onbeforeunload = () => {
+      localStorage.setItem('CART',JSON.stringify(store.getState()))
+    }
+  }
+
+  componentWillUnmount(){
+    // store.unsubscride()
   }
 
   calcTotalCount = () => {

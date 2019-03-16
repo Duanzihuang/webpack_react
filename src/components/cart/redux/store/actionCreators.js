@@ -4,3 +4,17 @@ export const addToCart = goods => {
         goods
     }
 }
+
+export const updateToCart = goods => {
+    return {
+        type:'UPDATE_CART',
+        goods
+    }
+}
+
+export const deleteToCart = id => {
+    return {
+        type:'DELETE_CART',
+        id
+    }
+}

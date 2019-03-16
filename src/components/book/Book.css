@@ -4,6 +4,6 @@ table{
 }
 
 table th,table td{
-    text-align: center;
-    border:1px solid blue;
+    /* text-align: center; */
+    /* border:1px solid blue; */
 }

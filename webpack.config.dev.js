@@ -12,6 +12,20 @@ module.exports = {
     // 拓展名
     extensions: [".jsx", ".js", ".json"]
   },
+  devServer:{
+    proxy:{
+      '/':{
+        target:'http://127.0.0.1:3000/', //发送给真正的服务器
+        // pathRewrite: {'^/api' : ''},
+        secure: false // 设置支持https协议的代理
+      },
+      '/api':{
+        target:'http://127.0.0.1:3000/', //发送给真正的服务器
+        pathRewrite: {'^/api' : ''},
+        secure: false // 设置支持https协议的代理
+      }
+    }
+  },
   //output 开发阶段暂时不用配置
   module: {
     rules: [

@@ -28,20 +28,23 @@ export default class Index extends Component {
     })
 
     // 监听仓库数据的改变，只要仓库的数据变了，就执行回调函数
-    store.subscribe(()=>{
-      this.setState({
-        totalCount:this.calcTotalCount()
-      })
-    })
+    store.subscribe(this.watchStore)
 
     // 监听window的onbeforeunload
     window.onbeforeunload = () => {
       localStorage.setItem('CART',JSON.stringify(store.getState()))
     }
   }
+  
+  // 监控store的变化，计算总数
+  watchStore = () => {
+    this.setState({
+      totalCount:this.calcTotalCount()
+    })
+  }
 
   componentWillUnmount(){
-    // store.unsubscride()
+    store.unsubscribe(this.watchStore)
   }
 
   calcTotalCount = () => {

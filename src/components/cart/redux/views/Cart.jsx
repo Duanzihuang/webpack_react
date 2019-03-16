@@ -81,11 +81,15 @@ export default class Cart extends Component {
         })
 
         // 监听仓库中数据的变化，只要数据发生了改变，就会自动触发回调函数
-        store.subscribe(()=>{
-            this.setState({
-                goodsList:store.getState(),
-                totalPrice:this.calcTotalPrice()
-            })
+        store.subscribe(this.watchStore)
+    }
+
+    // 监听函数，当我们更改了store中的值，就会自动执行里面的代码
+    // 重新计算商品列表 和 总价格
+    watchStore = () => {
+        this.setState({
+            goodsList:store.getState(),
+            totalPrice:this.calcTotalPrice()
         })
     }
 
@@ -99,7 +103,9 @@ export default class Cart extends Component {
     }
 
     componentWillUnmount(){
-        // store.unsubscride()
+        if (store && store.unsubscribe){
+            store.unsubscribe(this.watchStore)
+        }
     }
 
     render() {

@@ -50,10 +50,13 @@ export default class GoodsList extends Component {
   
   // 添加购物车
   addCart = goods => {
-    const action = addToCart(goods)
+    // const action = addToCart(goods)
     
     // 出发action
-    store.dispatch(action)
+    store.dispatch({
+      type:'ADD_CART', // 类型：添加购物车
+      goods
+    })
   }
 
   render() {

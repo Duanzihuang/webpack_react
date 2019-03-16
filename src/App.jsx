@@ -12,7 +12,9 @@ import ConditionalAndFor from '@/ConditionalAndFor'
 import MyCheckboxAndRadio from '@/MyCheckboxAndRadio'
 import RefAndDom from '@/RefAndDom'
 import LifeCycle from '@/LifeCycle'
-import Book from '@/book/Book'
+// import Book from '@/book/Book'
+
+import Book from '@/book_networking/Book'
 
 // 路由相关的组件
 import Basic from '@/router/Basic'

@@ -293,3 +293,90 @@ https://www.cnblogs.com/qiaojie/p/6135180.html
 		some
 ```
 
+### Redux && React-Redux
+
+> Redux http://cn.redux.js.org/
+
+```
+作用：
+	用来进行全局的状态管理
+	
+核心概念:
+	store 仓库 可以供组件取值用，同时组件操作了值之后，最终也是会反映到store中
+	
+	reducer 组件所有的操作，最终处理都在reducer中去处理
+		参数1：preState 上一次操作的结果
+		参数2：action  action.type 区分操作的类型
+		
+	action 触发的动作  store.dispatch(action)去触发
+		action.type
+		其它参数
+		
+store常用的API
+	store.getState 从仓库中获取数据
+	store.subcribe 监听仓库数据的变化
+	store.unsubscribe 写在监听
+	store.dispatch 触发action
+		
+步骤：
+	1、获取购物车的总数量
+		Index.jsx  componentwillMount中调用一次 store.getState()
+			再次监听 store.subscribe
+		
+	2、新增
+		GoodsList.jsx 中点击了加入购物车，触发新增的action
+		
+	3、购物车组件获取商品列表进行展示
+		Cart.jsx  componentwillMount中调用一次 store.getState()
+			再次监听 store.subscribe
+			
+	4、修改
+		Cart.jsx 触发了InputNumber的加或减，触发修改的action
+		
+	5、删除
+		Cart.jsx 点击了删除按钮，触发删除的action
+```
+
+> React-Redux
+
+```
+文档地址:
+	http://cn.redux.js.org/docs/react-redux/
+
+相比于redux的好处
+	1、不需要在每个组件中都导入store，并且监听
+	
+	2、更好的和react组件结合
+	
+核心概念:
+	Provider 在根组件中注入仓库，让整个应用拥有状态管理的能力
+	connect 通过它可以建立组件和仓库的关系，这样我们每个组件就可以操作仓库了
+	mapStateToProps 从仓库中获取值，然后将值设置给组件的props属性
+	mapDispatchToProps 把要触发的action和组件的props绑定起来
+	
+步骤:
+	1、安装包 react-redux
+		yarn add react-redux -S 【必须先安装redux】
+		
+	2、之前写的仓库中的代码，基本不用动
+		store/index
+		store/reducer
+		store/actionCreater
+
+	3、根组件中使用Provider注入store，这样整个应有就拥有了状态管理能力
+		<Provider store={store}></Provider>
+	
+	4、每个组件需要使用connect来建立和store的关联
+	
+	5、组件中进行获取数据与更改仓库数据
+		mapStateToProps mapStateDispatchToProps
+		
+	6、Index.jsx中通过mapStateToProps获取值
+
+	7、GoodsList.jsx中mapDispatchToProps去往仓库中增加一条商品信息
+	
+	8、Cart.jsx 中通过 mapStateToProps 获取商品列表和商品总价
+	
+	9、Cart.jsx 中通过 mapDispatchToProps 修改和删除商品
+```
+

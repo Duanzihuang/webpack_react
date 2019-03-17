@@ -21,7 +21,12 @@ import Basic from '@/router/Basic'
 import Nested from '@/router/Nested'
 
 // 购物车案例
-import Index from '@/cart/redux/views/Index'
+// import Index from '@/cart/redux/views/Index'
+
+import Index from '@/cart/react-redux/views/Index'
+
+import {Provider} from 'react-redux'
+import store from './components/cart/react-redux/store/'
 
 // 热更新
 import { hot } from 'react-hot-loader/root'
@@ -48,7 +53,8 @@ class App extends React.Component{
             isMan:true
         }
 
-        return <div>
+        return <Provider store={store}>
+            <Index />
             {/* <NoStateComponent {...obj}/>  */}
             {/* <NoStateComponent name="ch" sex="男" age={18} isMan={true}/> */}
             {/* <hr/> */}
@@ -61,11 +67,10 @@ class App extends React.Component{
             {/* <MyCheckboxAndRadio /> */}
             {/* <RefAndDom/> */}
             {/* <LifeCycle/> */}
-            {/* <Book></Book> */}
+             {/* <Book></Book>  */}
             {/* <Basic /> */}
             {/* <Nested></Nested> */}
-            <Index />
-        </div>
+        </Provider>
     }
 
     render2(){

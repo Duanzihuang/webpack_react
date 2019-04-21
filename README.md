@@ -380,3 +380,93 @@ store常用的API
 	9、Cart.jsx 中通过 mapDispatchToProps 修改和删除商品
 ```
 
+### 状态管理之Mobx
+
+> 基本概念
+
+```
+一个用于改变全局状态的工具，具有简洁、透明的使用风格
+```
+
+> 使用步骤
+
+```
+1、安装包
+	yarn add mobx mobx-react -S
+	
+2、在appState.js【存放状态的文件】中使用 observable 包裹导出去的对象
+	import {observable} from 'mobx'
+	observable(value)
+
+3、在组件【使用状态值的】中使用 observer 装饰组件的导出
+	import {observer} from "mobx-react"
+	export default observer(组件)
+```
+
+> 原理
+
+```
+mobx中使用了es6新增的proxy代理对象，某种意义上像Vue中的数据劫持，当数据变化的时候，能自动执行getter
+
+状态与组件的关系
+	状态 observable "被观察对象"  从 mobx 中来
+	组件 observer "观察者" 从 mobx-react 中来
+```
+
+> 补充之修饰器
+
+```
+es6新增的语法以 @ 开头
+例如:修饰对象
+{
+    @val = 10
+}
+例如修饰class
+@observer
+class xxx extends YYY{
+    
+}
+
+本质是一个语法糖，就是把对象和class包裹起来而已
+
+注意：
+	1、需要babel的配置，要安装如下插件
+	@babel/plugin-proposal-decorators
+	2、修饰器只能修饰 class,还需要安装一个包
+	@babel/plugin-proposal-class-properties
+```
+
+> 使用装饰器改造mobx案例
+
+```
+1、安装包
+	yarn add @babel/plugin-proposal-decorators @babel/plugin-proposal-class-properties -D
+	babel的配置参考
+		http://es6.ruanyifeng.com/#docs/decorator
+		
+		并且注意：@babel/plugin-proposal-decorators 的配置一定要写在 @babel/plugin-proposal-class-properties 之前
+		
+	
+2、在AppState2.js中，使用修饰器在class中修饰 实例属性
+	import {observable} from 'mobx'
+
+    export default class AppState2{
+        @observable val2 = 100
+    }
+    
+3、在父组件中实例化 AppState2.js 对象，然后传递给子组件
+	类必须要被实例化，然后当成props传递到子组件中
+	
+	import AppState2 from './AppState2'
+	const appState2 = new AppState2()
+	
+	<div>
+         <BasicUse2 appState2={appState2}/>
+    </div>
+    
+4、在子组件 BasicUse2 中使用 装饰器 @observer 装饰子组件
+	@observer
+	class BasicUse extends Component {}
+```
+
+ 

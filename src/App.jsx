@@ -23,7 +23,7 @@ import Nested from '@/router/Nested'
 // 购物车案例
 // import Index from '@/cart/redux/views/Index'
 
-// import Index from '@/cart/react-redux/views/Index'
+import Index from '@/cart/react-redux/views/Index'
 
 import {Provider} from 'react-redux'
 import store from './components/cart/react-redux/store/'
@@ -32,7 +32,7 @@ import store from './components/cart/react-redux/store/'
 import { hot } from 'react-hot-loader/root'
 
 // Mobx
-import Index from './components/mobx/Index'
+// import Index from './components/mobx/Index'
 
 const chenhuanStyle = {
     color:'green',

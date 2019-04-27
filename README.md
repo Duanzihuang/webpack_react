@@ -380,6 +380,15 @@ store常用的API
 	9、Cart.jsx 中通过 mapDispatchToProps 修改和删除商品
 ```
 
+> redux-thunk
+
+```
+异步操作Action
+参考：
+	https://github.com/reduxjs/redux-thunk
+	https://blog.csdn.net/qq_34765914/article/details/78598031
+```
+
 ### 状态管理之Mobx
 
 > 基本概念

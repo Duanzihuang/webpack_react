@@ -6,6 +6,8 @@ import { Button } from 'element-react';
 
 import {connect} from 'react-redux'
 
+import {addToCartAsync} from '../store/actionCreators'
+
 class GoodsList extends Component {
   constructor() {
     super();
@@ -61,8 +63,13 @@ class GoodsList extends Component {
                 />
                 <p>商品名:{item.name}</p>
                 <p>¥:{item.price}</p>
-                <Button
+                {/* <Button
                   onClick={()=>{this.props.addCart(item)}}
+                  type="success"
+                  style={{marginTop:15}}
+                > */}
+                <Button
+                  onClick={()=>{this.props.addCartAsync(item)}}
                   type="success"
                   style={{marginTop:15}}
                 >
@@ -92,6 +99,9 @@ const mapDispatchToProps = dispatch => {
         type:'ADD_CART',
         goods
       })
+    },
+    addCartAsync(goods){
+      dispatch(addToCartAsync(goods))
     }
   }
 }
